@@ -1,0 +1,112 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Cormorant Garamond", "Times New Roman", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-script: "Cormorant Garamond", serif;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-xl: 22px;
+  --radius-2xl: 30px;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-gold: var(--gold);
+  --color-ink: var(--ink);
+  --color-ivory: var(--ivory);
+  --color-sand: var(--sand);
+}
+
+:root {
+  --background: oklch(0.97 0.012 80);
+  --foreground: oklch(0.18 0.018 60);
+  --ivory: oklch(0.97 0.012 80);
+  --sand: oklch(0.92 0.02 75);
+  --ink: oklch(0.18 0.018 60);
+  --gold: oklch(0.68 0.09 70);
+
+  --card: oklch(0.99 0.006 80);
+  --card-foreground: oklch(0.18 0.018 60);
+  --popover: oklch(0.99 0.006 80);
+  --popover-foreground: oklch(0.18 0.018 60);
+  --primary: oklch(0.18 0.018 60);
+  --primary-foreground: oklch(0.97 0.012 80);
+  --secondary: oklch(0.92 0.02 75);
+  --secondary-foreground: oklch(0.18 0.018 60);
+  --muted: oklch(0.92 0.015 75);
+  --muted-foreground: oklch(0.45 0.015 65);
+  --accent: oklch(0.68 0.09 70);
+  --accent-foreground: oklch(0.99 0.006 80);
+  --destructive: oklch(0.55 0.18 27);
+  --destructive-foreground: oklch(0.99 0.006 80);
+  --border: oklch(0.88 0.015 75);
+  --input: oklch(0.88 0.015 75);
+  --ring: oklch(0.68 0.09 70);
+  --radius: 0.625rem;
+}
+
+.dark {
+  --background: oklch(0.14 0.012 60);
+  --foreground: oklch(0.96 0.012 80);
+  --card: oklch(0.18 0.012 60);
+  --card-foreground: oklch(0.96 0.012 80);
+  --primary: oklch(0.96 0.012 80);
+  --primary-foreground: oklch(0.14 0.012 60);
+  --muted: oklch(0.22 0.012 60);
+  --muted-foreground: oklch(0.7 0.015 70);
+  --border: oklch(1 0 0 / 10%);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { -webkit-font-smoothing: antialiased; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1, h2, h3, h4, .font-display { font-family: var(--font-display); letter-spacing: -0.01em; }
+}
+
+@layer utilities {
+  .grain {
+    background-image: radial-gradient(oklch(0.18 0.018 60 / 0.04) 1px, transparent 1px);
+    background-size: 3px 3px;
+  }
+  .gold-divider {
+    background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+    height: 1px;
+  }
+  .text-balance { text-wrap: balance; }
+  .marquee {
+    animation: marquee 40s linear infinite;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+}
